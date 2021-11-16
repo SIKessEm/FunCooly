@@ -6,8 +6,8 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <base href="<?= env('base_url') ?>"/>
-        <title><?= env('app_name') ?></title>
-        <meta name="description" content="Discutez et partagez librement avec des personnes partout dans le monde"/>
+        <title><?= $title ?? env('app_name') ?></title>
+        <meta name="description" content="<?= $description ?>"/>
         <style>
             *::before,
             *,
