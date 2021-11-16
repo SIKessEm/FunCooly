@@ -42,14 +42,14 @@ if (
     $response_code = 404;
 elseif (
     is_file($response_file) ||
-    is_file($response_file = $src_directory . $request_path . $request_method . $src_extension)
+    is_file($response_file = $src_directory . $request_path . DIRECTORY_SEPARATOR . $request_method . $src_extension)
 )
     $result = require $response_file;
 else {
     $found = false;
 
     foreach ($src_indexes as $index) {
-        if (is_file($response_file = $src_directory . $request_path . $index . $src_extension)) {
+        if (is_file($response_file = $src_directory . $request_path . DIRECTORY_SEPARATOR . $index . $src_extension)) {
             $found = true;
             break;
         }
@@ -70,4 +70,9 @@ if ($response_code >= 400 && !isset($result)) {
 
 http_response_code($response_code);
 
-isset($result) ? exit(is_bool($result) ? (int) $result : (string) $result) : exit;
+if (!isset($result))
+    exit;
+elseif (is_bool($result) || is_int($result))
+    exit((int) $result);
+else
+    exit((string) $result);
