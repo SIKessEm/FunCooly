@@ -5,8 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <base href="/"/>
-        <title><?= app_name ?></title>
+        <base href="<?= env('base_url') ?>"/>
+        <title><?= env('app_name') ?></title>
         <meta name="description" content="Discutez et partagez librement avec des personnes partout dans le monde"/>
         <style>
             *::before,
@@ -92,11 +92,11 @@
         <div id="wrapper">
             <div class="layout">
                 <header id="head">
-                    <h1><a href="/"><?= app_name ?></a></h1>
+                    <h1><a href="/"><?= env('app_name') ?></a></h1>
                 </header>
                 <main id="view"><?= $view ?></main>
                 <footer id="foot">
-                    <p><?= app_name ?> &copy; 2021</p>
+                    <p><?= env('app_name') ?> &copy; 2021</p>
                 </footer>
             </div>
         </div>

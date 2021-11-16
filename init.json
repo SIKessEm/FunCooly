@@ -1,0 +1,9 @@
+{
+    "app_name": "FunCooly",
+    "src_indexes": [
+        "index",
+        "home"
+    ],
+    "src_extension": ".php",
+    "src_directory": "src/main"
+}
