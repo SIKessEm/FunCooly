@@ -1,11 +1,29 @@
 <?php
+const app_name = 'FunCooly';
 
-$base_url = '/';
-$root_dir = dirname(__DIR__) . DIRECTORY_SEPARATOR;
+function render(string $name, array $vars = []): string {
+    ob_start();
+    import("tpl.$name", $vars);
+    return ob_get_clean();
+}
+
+function import(string $__script, array $__vars = [], bool $__required = true, bool $__once = false): mixed {
+    $__script = root_dir() . strtr($__script, '.', DIRECTORY_SEPARATOR) . '.php';
+    extract($__vars);
+    return $__required ? ($__once ? require_once $__script : require $__script) : ($__once ? include_once $__script : include $__script);
+}
+
+function root_dir(): string {
+    return dirname(__DIR__) . DIRECTORY_SEPARATOR;
+}
+
+function base_url(): string {
+    return '/';
+}
 
 $sources_indexes = ['index', 'home'];
 $sources_extension = '.php';
-$sources_directory = $root_dir . 'src/main/';
+$sources_directory = root_dir() . 'src/main/';
 
 $request_uri = $_SERVER['REQUEST_URI'];
 $request_method = $_SERVER['REQUEST_METHOD'];
@@ -56,17 +74,4 @@ if ($response_code >= 400 && !isset($result)) {
 
 http_response_code($response_code);
 
-if (!isset($result))
-    exit;
-
-$render = '';
-
-if (is_file($layout = $root_dir . 'tpl/layout/main.php')) {
-    ob_start();
-    require $layout;
-    $render = ob_get_clean();
-}
-
-if (empty($render))
-    http_response_code($response_code);
-exit($render);
+isset($result) ? exit(is_bool($result) ? (int) $result : (string) $result) : exit;
