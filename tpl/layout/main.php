@@ -38,6 +38,72 @@
                 display: flex;
             }
 
+            .link {
+                color: rgba(0, 127, 127, 0.75);
+            }
+
+            .link:hover,
+            .link:active {
+                color: rgba(0, 127, 127, 1);
+                text-decoration: underline;
+            }
+            
+            .entry,
+            .button {
+                border-radius: 4px;
+                font-size: 1rem;
+                padding: 10px 15px;
+                display: block;
+            }
+
+            .entry {
+                border: 1px solid rgba(0, 127, 127, 0.25);
+                width: 100%;
+            }
+
+            .button {
+                cursor: pointer;
+                transition: 0.75s ease-in-out;
+                border: 1px solid rgba(0, 127, 127, 0.5);
+                background-color: rgba(0, 127, 127, 0.25);
+            }
+
+            .button:hover {
+                color: #fff;
+                border: 1px solid rgba(0, 127, 127, 1);
+                background-color: rgba(0, 127, 127, 0.75);
+            }
+
+            .button:active {
+                color: #000;
+                border: 1px solid rgba(0, 127, 127, 0.75);
+                background-color: rgba(0, 127, 127, 0.5);
+            }
+
+            .button:focus {
+                color: #fff;
+                background-color: rgba(0, 127, 127, 1);
+            }
+
+            .field-box {
+                display: flex;
+                margin: 10px auto;
+            }
+
+            .buttons-block {
+                display: block;
+                margin: 18px auto;
+            }
+
+            .buttons-block > .button {
+                display: inline-block;
+            }
+
+            .form-container {
+                max-width: clamp(50vw, 300px, 100%);
+                margin: auto;
+            }
+
             #wrapper > .layout {
                 grid-template-columns: 1fr;
                 grid-template-rows: 5rem calc(100vh - 8rem) 3rem;
