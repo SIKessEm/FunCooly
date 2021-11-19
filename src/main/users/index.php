@@ -1,6 +1,6 @@
 <?php
 return render('layout.main', [
-    'title' => env('app_name') . ' : Rejoindre',
-    'description' => 'Découvrez les membres actifs de ' . env('app_name') . ' pour partager avec eux',
+    'title' => fmt('%s : Rejoindre', env('app_name')),
+    'description' => fmt('Découvrez les membres actifs de %s pour partager avec eux', env('app_name')),
     'view' => render('view.users.index')
 ]);

@@ -1,6 +1,6 @@
 <?php
 return render('layout.main', [
-    'title' => env('app_name') . ' : Connexion',
-    'description' => 'Accédez à votre compte ' . env('app_name') . ' pour discuter avec vos correspondant',
-    'view' => render('view.users.LogIn')
+    'title' => fmt('%s : Connexion', env('app_name')),
+    'description' => fmt('Accédez à votre compte %s pour discuter avec vos correspondant', env('app_name')),
+    'view' => render('view.users.LogIn'),
 ]);

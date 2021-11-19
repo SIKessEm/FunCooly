@@ -7,6 +7,16 @@ function env(?string $name = null): mixed {
     return isset($name) ? ($options[$name] ?? null) : $options;
 }
 
+function fmt(string $format, string|int|float ...$values): string {
+    static $formats;
+    if (!isset($formats))
+        $formats = import('fmt');
+
+    if (!isset($formats[$format]))
+        $formats[$format] = $format;
+    return empty($values) ? $formats[$format] : sprintf($formats[$format], ...$values);
+}
+
 function render(string $name, array $vars = []): string {
     ob_start();
     import("tpl.$name", $vars);
