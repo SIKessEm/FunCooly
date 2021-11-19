@@ -17,6 +17,13 @@ function fmt(string $format, string|int|float ...$values): string {
     return empty($values) ? $formats[$format] : sprintf($formats[$format], ...$values);
 }
 
+function lnk(string $path): string {
+    $path = trim($path, '/');
+    $path = env('base_url')  . '/' . $path;
+    $path = preg_replace('/\/+/', '/', $path);
+    return $path;
+}
+
 function render(string $name, array $vars = []): string {
     ob_start();
     import("tpl.$name", $vars);
@@ -34,8 +41,7 @@ $request_method = $_SERVER['REQUEST_METHOD'];
 $request_scheme = $_SERVER['REQUEST_SCHEME'] ?? 'http';
 
 $request_path = parse_url($request_uri, PHP_URL_PATH);
-$request_path = preg_replace('/\/+/', '/', $request_path);
-$request_path = trim($request_path, '/');
+$request_path = lnk($request_path);
 $request_path = str_replace('/', DIRECTORY_SEPARATOR, $request_path);
 
 $request_query = parse_url($request_uri, PHP_URL_QUERY);

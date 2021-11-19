@@ -14,6 +14,6 @@
         </form>
     </div>
     <div>
-        <p><?= fmt('Je ne suis pas encore membre.') ?> <a href="/users/SignUp" class="link"><?= fmt('Je veux m\'inscrire gratuitement !') ?></a></p>
+        <p><?= fmt('Je ne suis pas encore membre.') ?> <a href="<?= lnk('users/SignUp') ?>" class="link"><?= fmt('Je veux m\'inscrire gratuitement !') ?></a></p>
     </div>
 </div>

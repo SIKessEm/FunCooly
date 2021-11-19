@@ -17,6 +17,6 @@
         </form>
     </div>
     <div>
-        <p><?= fmt('Je suis déjà membre.') ?> <a href="/users/LogIn" class="link"><?= fmt('Je veux me connecter !') ?></a></p>
+        <p><?= fmt('Je suis déjà membre.') ?> <a href="<?= lnk('users/LogIn') ?>" class="link"><?= fmt('Je veux me connecter !') ?></a></p>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <div>
     <h1><?= fmt('Rejoignez %s', env('app_name')) ?></h1>
     <div>
-        <p><a href="/users/LogIn" class="link"><?= fmt('Connectez-vous') ?></a> <?= fmt('ou') ?> <a href="/users/SignUp" class="link"><?= fmt('inscrivez-vous gratuitement') ?></a>.</p>
+        <p><a href="<?= lnk('users/LogIn') ?>" class="link"><?= fmt('Connectez-vous') ?></a> <?= fmt('ou') ?> <a href="<?= lnk('users/SignUp') ?>" class="link"><?= fmt('inscrivez-vous gratuitement') ?></a>.</p>
     </div>
     <div class="form-container">
         <form method="POST" action="#">
